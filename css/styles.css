@@ -54,6 +54,7 @@ img {
   display: flex;
 }
 .nav-list a {
+  position: relative;
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -89,6 +90,19 @@ img {
 .link:focus,
 .link.active {
   color: var(--link-color);
+}
+
+.link.active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  margin-top: 28px;
+  padding-bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--link-color);
+  border-radius: 4px;
 }
 
 .nav-list .link.current {
