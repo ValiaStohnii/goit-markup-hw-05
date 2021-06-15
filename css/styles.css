@@ -80,12 +80,20 @@ img {
 .nav-list .item:last-child {
   margin-right: 0;
 }
-
+.contacts-list a {
+  transition-property: color fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 .contacts-list a:hover {
   color: var(--link-color);
   fill: currentColor;
 }
-
+.link {
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 .link:hover,
 .link:focus,
 .link.active {
@@ -143,6 +151,10 @@ img {
   letter-spacing: 0.02em;
   text-decoration: none;
   fill: #757575;
+
+  transition-property: color fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-link:hover,
 .contacts-link:focus {
@@ -237,6 +249,9 @@ img {
   line-height: 1.62;
   text-align: center;
   cursor: pointer;
+  transition-property: background-color color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-list {
@@ -333,9 +348,26 @@ img {
 }
 .images-list li {
   margin-right: 30px;
+  position: relative;
 }
 .images-list li:last-child {
   margin-right: 0px;
+}
+
+.label {
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(47, 48, 58, 0.8);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-transform: uppercase;
 }
 /*IMG-SECTION*/
 
@@ -356,6 +388,8 @@ img {
   margin-right: 30px;
   margin-bottom: 30px;
   background: #ffffff;
+  display: inline-block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .projects li:nth-child(3n) {
   margin-right: 0px;
@@ -382,30 +416,38 @@ img {
   text-decoration: none;
   color: var(--primary-text-color);
 }
-.projects li:hover {
+.projects li:hover,
+.projects li:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
 }
-.projects li:hover .hover-text {
+.projects li:hover .hover-text,
+.projects li:focus .hover-text {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
   opacity: 1;
+  transform: translateY(-100%);
 }
-.projects li:hover ::before {
+.projects li:hover ::before,
+.projects li:focus ::before {
   opacity: 1;
+}
+.projects li:hover .hover-img::before {
+  transform: translateY(0);
 }
 .hover-text {
   position: absolute;
-  top: 63px;
-  left: 24px;
-  bottom: 63px;
-  right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 63px 24px;
   color: #ffffff;
   font-size: 18px;
   line-height: 1.55;
   opacity: 0;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hover-img::before {
   content: "";
@@ -415,10 +457,13 @@ img {
   height: 100%;
   background-color: rgba(33, 150, 243, 0.9);
   opacity: 0;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-img {
   position: relative;
+  overflow: hidden;
 }
 
 /*PROJECT SECTION*/
@@ -489,6 +534,9 @@ img {
   height: 44px;
   border-radius: 50%;
   fill: var(--icon-color);
+  transition-property: background-color fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-icon {
@@ -526,6 +574,9 @@ img {
   border: 1px solid var(--icon-color);
   border-radius: 4px;
   fill: var(--icon-color);
+  transition-property: border fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-list li:last-child {
   margin-right: 0;
@@ -596,6 +647,9 @@ img {
   margin-right: 10px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
+  transition-property: background-color fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-icons-list {
   display: flex;
@@ -643,23 +697,28 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
-
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+}
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   width: 528px;
   height: 581px;
   background: #ffffff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-icon {
